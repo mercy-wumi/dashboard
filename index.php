@@ -215,8 +215,8 @@
                         <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                                 <div class="user-nav d-sm-flex d-none"><span class="user-name"><?php $user->firstname($id);?></span><span class="user-status text-muted">Available</span></div><span><img class="round" src="./app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"></span>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right pb-0"><a class="dropdown-item" href="page-user-profile.html"><i class="bx bx-user mr-50"></i> Edit Profile</a><a class="dropdown-item" href="app-email.html"><i class="bx bx-envelope mr-50"></i> My Inbox</a><a class="dropdown-item" href="app-todo.html"><i class="bx bx-check-square mr-50"></i> Task</a><a class="dropdown-item" href="app-chat.html"><i class="bx bx-message mr-50"></i> Chats</a>
-                                <div class="dropdown-divider mb-0"></div><a class="dropdown-item" href="?q=logout"><i class="bx bx-power-off mr-50"></i> Logout</a>
+                            <div class="dropdown-menu dropdown-menu-right pb-0"><!-- <a class="dropdown-item" href="page-user-profile.html"><i class="bx bx-user mr-50"></i> Edit Profile</a><a class="dropdown-item" href="app-email.html"><i class="bx bx-envelope mr-50"></i> My Inbox</a><a class="dropdown-item" href="app-todo.html"><i class="bx bx-check-square mr-50"></i> Task</a><a class="dropdown-item" href="app-chat.html"><i class="bx bx-message mr-50"></i> Chats</a> -->
+                                <!-- <div class="dropdown-divider mb-0"></div> --><a class="dropdown-item" href="?q=logout"><i class="bx bx-power-off mr-50"></i> Logout</a>
                             </div>
                         </li>
                     </ul>
@@ -233,7 +233,7 @@
             <ul class="nav navbar-nav flex-row">
                 <li class="nav-item mr-auto"><a class="navbar-brand" href="././html/ltr/vertical-menu-boxicons-template/index.html">
                         <div class="brand-logo"><img class="logo" src="././app-assets/images/logo/logo.png" /></div>
-                        <h2 class="brand-text mb-0">Frest</h2>
+                        <h2 class="brand-text mb-0">Vennit</h2>
                     </a></li>
                 <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"><i class="bx bx-x d-block d-xl-none font-medium-4 primary toggle-icon"></i><i class="toggle-icon bx bx-disc font-medium-4 d-none d-xl-block collapse-toggle-icon primary" data-ticon="bx-disc"></i></a></li>
             </ul>
@@ -595,10 +595,10 @@
                             </div>
 
                         </div>
-                        <div class="col-xl-3 col-md-6 col-sm-12 dashboard-referral-impression">
-                            <div class="row">
+                        <!-- <div class="col-xl-3 col-md-6 col-sm-12 dashboard-referral-impression">
+                            <div class="row"> -->
                                 <!-- Referral Chart Starts-->
-                                <div class="col-xl-12 col-12">
+                                <!-- <div class="col-xl-12 col-12">
                                     <div class="card">
                                         <div class="card-content">
                                             <div class="card-body text-center pb-0">
@@ -608,9 +608,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- Impression Radial Chart Starts-->
-                                <div class="col-xl-12 col-12">
+                                <!-- div class="col-xl-12 col-12">
                                     <div class="card">
                                         <div class="card-content">
                                             <div class="card-body donut-chart-wrapper">
@@ -627,9 +627,9 @@
                             </div>
                         </div>
                         <div class="col-xl-3 col-md-12 col-sm-12">
-                            <div class="row">
+                            <div class="row"> -->
                                 <!-- Conversion Chart Starts-->
-                                <div class="col-xl-12 col-md-6 col-12">
+                                <!-- <div class="col-xl-12 col-md-6 col-12">
                                     <div class="card">
                                         <div class="card-header d-flex justify-content-between pb-xl-0 pt-xl-1">
                                             <div class="conversion-title">
@@ -691,10 +691,10 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
+                    </div> -->
+                    <!-- <div class="row"> -->
                         <!-- Activity Card Starts-->
-                        <div class="col-xl-3 col-md-6 col-12 activity-card">
+                        <!-- <div class="col-xl-3 col-md-6 col-12 activity-card">
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title">Activity</h4>
@@ -760,9 +760,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- Profit Report Card Starts-->
-                        <div class="col-xl-3 col-md-6 col-12 profit-report-card">
+                        <!-- <div class="col-xl-3 col-md-6 col-12 profit-report-card">
                             <div class="row">
                                 <div class="col-md-12 col-sm-6">
                                     <div class="card">
@@ -810,9 +810,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- Sales Chart Starts-->
-                        <div class="col-xl-3 col-md-6 col-12 sales-card">
+                        <!-- <div class="col-xl-3 col-md-6 col-12 sales-card">
                             <div class="card">
                                 <div class="card-header d-flex justify-content-between align-items-center">
                                     <div class="card-title-content">
@@ -847,9 +847,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- Growth Chart Starts-->
-                        <div class="col-xl-3 col-md-6 col-12 growth-card">
+                       <!--  <div class="col-xl-3 col-md-6 col-12 growth-card">
                             <div class="card">
                                 <div class="card-body text-center">
                                     <div class="dropdown">
@@ -867,10 +867,10 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
+                    </div> -->
+                    <!-- <div class="row"> -->
                         <!-- Task Card Starts -->
-                        <div class="col-lg-7">
+                        <!-- <div class="col-lg-7">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="card widget-todo">
@@ -1068,9 +1068,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- Daily Financials Card Starts -->
-                        <div class="col-lg-5">
+                        <!-- <div class="col-lg-5">
                             <div class="card ">
                                 <div class="card-header">
                                     <h4 class="card-title">
@@ -1105,7 +1105,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </section>
                 <!-- Dashboard Analytics end -->
@@ -1116,11 +1116,11 @@
     <!-- END: Content-->
 
     <!-- demo chat-->
-    <div class="widget-chat-demo">
+    <!-- <div class="widget-chat-demo"> -->
         <!-- widget chat demo footer button start -->
-        <button class="btn btn-primary chat-demo-button glow px-1"><i class="livicon-evo" data-options="name: comments.svg; style: lines; size: 24px; strokeColor: #fff; autoPlay: true; repeat: loop;"></i></button>
+        <!-- <button class="btn btn-primary chat-demo-button glow px-1"><i class="livicon-evo" data-options="name: comments.svg; style: lines; size: 24px; strokeColor: #fff; autoPlay: true; repeat: loop;"></i></button> -->
         <!-- widget chat demo footer button ends -->
-        <!-- widget chat demo start -->
+        <!-- widget chat demo start --><!-- 
         <div class="widget-chat widget-chat-demo d-none">
             <div class="card mb-0">
                 <div class="card-header border-bottom p-0">
@@ -1177,10 +1177,10 @@
             </div>
         </div>
         <!-- widget chat demo ends -->
-
+<!-- 
     </div>
     <div class="sidenav-overlay"></div>
-    <div class="drag-target"></div>
+    <div class="drag-target"></div> --> -->
 
     <!-- BEGIN: Footer-->
     <footer class="footer footer-static footer-light">
