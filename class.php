@@ -52,10 +52,10 @@ class User
         {
             $sql = "INSERT INTO `users` (firstname, lastname, email, password) VALUES ('$firstname','$lastname','$email','$pass') ";
             if ($conn->query($sql) === TRUE) {
-  //echo "New record created successfully";
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
-}
+              //echo "New record created successfully";
+            } else {
+              echo "Error: " . $sql . "<br>" . $conn->error;
+            }
         }
 
 
@@ -75,24 +75,34 @@ class User
   
     function login($email, $pass) {  
         $pass = md5($pass);  
-        $check = mysqli_query("Select * from users where email='$email' and password='$pass'");  
-        $data = mysqli_fetch_array($check);  
-        $result = mysqli_num_rows($check);  
-        if ($result == 1) {  
-            $_SESSION['login'] = true;  
-            $_SESSION['id'] = $data['id'];  
-            return true;  
-        } else {  
-            return false;  
-        }  
+        $conn = $this->conn;
+
+        $sql = "Select * from users where email='$email' and password='$pass'";
+        $rs = $conn->query($sql);
+        $row = $rs->fetch_assoc();
+
+
+        if($rs->num_rows == 1) { // if users email and password found in database
+            $_SESSION['login'] = true;
+            $_SESSION['id'] = $row['id'];
+            return true;
+        } else {
+            return false;
+        }
+
     }  
   
     public  
   
-    function firstname($id) {  
-        $result = mysqli_query("Select * from users where id='$id'");  
-        $row = mysqli_fetch_array($result);  
-        echo $row['firstname'];  
+    function firstname($id) {
+        $conn = $this->conn;
+        $rst = "Select * from users where id ='$id'"; 
+        $resultId = $conn->query($rst);
+        $rowId = $resultId->fetch_assoc();
+        echo $rowId['firstname'];
+
+        // $row = mysqli_fetch_array($result);  
+        // echo $row['firstname'];  
     }  
   
     public  

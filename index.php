@@ -213,7 +213,7 @@
                             </ul>
                         </li>
                         <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
-                                <div class="user-nav d-sm-flex d-none"><span class="user-name">John Doe</span><span class="user-status text-muted">Available</span></div><span><img class="round" src="./app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"></span>
+                                <div class="user-nav d-sm-flex d-none"><span class="user-name"><?php $user->firstname($id);?></span><span class="user-status text-muted">Available</span></div><span><img class="round" src="./app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right pb-0"><a class="dropdown-item" href="page-user-profile.html"><i class="bx bx-user mr-50"></i> Edit Profile</a><a class="dropdown-item" href="app-email.html"><i class="bx bx-envelope mr-50"></i> My Inbox</a><a class="dropdown-item" href="app-todo.html"><i class="bx bx-check-square mr-50"></i> Task</a><a class="dropdown-item" href="app-chat.html"><i class="bx bx-message mr-50"></i> Chats</a>
                                 <div class="dropdown-divider mb-0"></div><a class="dropdown-item" href="?q=logout"><i class="bx bx-power-off mr-50"></i> Logout</a>
@@ -241,15 +241,16 @@
         <div class="shadow-bottom"></div>
         <div class="main-menu-content">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation" data-icon-style="">
-                <li class=" nav-item"><a href="index.html"><i class="bx bx-home-alt"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span><span class="badge badge-light-danger badge-pill badge-round float-right mr-2">2</span></a>
+                <li class=" nav-item"><a href="index.html"><i class="bx bx-home-alt"></i><span class="menu-title" data-i18n="Dashboard">Dashboard<!-- </span><span class="badge badge-light-danger badge-pill badge-round float-right mr-2">2</span> --></a>
                     <ul class="menu-content">
-                        <li><a href="dashboard-ecommerce.html"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="eCommerce">eCommerce</span></a>
-                        </li>
+                        <!-- <li><a href="dashboard-ecommerce.html"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="eCommerce">eCommerce</span></a>
+                        </li> -->
                         <li class="active"><a href="dashboard-analytics.html"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="Analytics">Analytics</span></a>
                         </li>
                     </ul>
                 </li>
-                <li class=" navigation-header"><span>Apps</span>
+            </ul>
+                <!-- <li class=" navigation-header"><span>Apps</span>
                 </li>
                 <li class=" nav-item"><a href="app-email.html"><i class="bx bx-envelope"></i><span class="menu-title" data-i18n="Email">Email</span></a>
                 </li>
@@ -260,8 +261,8 @@
                 <li class=" nav-item"><a href="app-calendar.html"><i class="bx bx-calendar"></i><span class="menu-title" data-i18n="Calendar">Calendar</span></a>
                 </li>
                 <li class=" nav-item"><a href="app-kanban.html"><i class="bx bx-grid-alt"></i><span class="menu-title" data-i18n="Kanban">Kanban</span></a>
-                </li>
-                <li class=" nav-item"><a href="#"><i class="bx bx-file"></i><span class="menu-title" data-i18n="Invoice">Invoice</span></a>
+                </li> -->
+                <!-- <li class=" nav-item"><a href="#"><i class="bx bx-file"></i><span class="menu-title" data-i18n="Invoice">Invoice</span></a>
                     <ul class="menu-content">
                         <li><a href="app-invoice-list.html"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="Invoice List">Invoice List</span></a>
                         </li>
@@ -274,8 +275,8 @@
                     </ul>
                 </li>
                 <li class=" nav-item"><a href="app-file-manager.html"><i class="bx bx-save"></i><span class="menu-title" data-i18n="File Manager">File Manager</span></a>
-                </li>
-                <li class=" navigation-header"><span>UI Elements</span>
+                </li> -->
+                <!-- <li class=" navigation-header"><span>UI Elements</span>
                 </li>
                 <li class=" nav-item"><a href="#"><i class="bx bx-repeat"></i><span class="menu-title" data-i18n="Content">Content</span></a>
                     <ul class="menu-content">
@@ -289,8 +290,8 @@
                         </li>
                         <li><a href="content-helper-classes.html"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="Helper Classes">Helper Classes</span></a>
                         </li>
-                    </ul>
-                </li>
+                    </ul> -->
+                <!-- </li>
                 <li class=" nav-item"><a href="colors.html"><i class="bx bx-droplet"></i><span class="menu-title" data-i18n="Colors">Colors</span></a>
                 </li>
                 <li class=" nav-item"><a href="#"><i class="bx bx-bulb"></i><span class="menu-title" data-i18n="Icons">Icons</span></a>
@@ -408,8 +409,8 @@
                 <li class=" nav-item"><a href="table-datatable.html"><i class="bx bx-map-alt"></i><span class="menu-title" data-i18n="Datatable">Datatable</span></a>
                 </li>
                 <li class=" navigation-header"><span>Pages</span>
-                </li>
-                <li class=" nav-item"><a href="page-user-profile.html"><i class="bx bx-user"></i><span class="menu-title" data-i18n="User Profile">User Profile</span></a>
+                </li> -->
+                <!-- <li class=" nav-item"><a href="page-user-profile.html"><i class="bx bx-user"></i><span class="menu-title" data-i18n="User Profile">User Profile</span></a>
                 </li>
                 <li class=" nav-item"><a href="page-faq.html"><i class="bx bx-help-circle"></i><span class="menu-title" data-i18n="FAQ">FAQ</span></a>
                 </li>
@@ -538,8 +539,9 @@
                 <li class=" nav-item"><a href="https://pixinvent.ticksy.com/" target="_blank"><i class="bx bx-purchase-tag-alt"></i><span class="menu-title" data-i18n="Raise Support">Raise Support</span></a>
                 </li>
             </ul>
-        </div>
+        </div> -->
     </div>
+</div>
     <!-- END: Main Menu-->
 
     <!-- BEGIN: Content-->
