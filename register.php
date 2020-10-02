@@ -1,6 +1,7 @@
 <?php  
    include_once 'class.php';  
-   $user = new User();  
+
+   $user = new User(); 
    if ($_SERVER["REQUEST_METHOD"] == "POST"){  
       $register = $user->register($_REQUEST['firstname'],$_REQUEST['lastname'],$_REQUEST['email'],$_REQUEST['password']);  
       //echo $register;
@@ -88,7 +89,7 @@
                                                     <!-- <div class="form-row"> -->
                                                         <div class="form-group mb-50">
                                                             <label for="inputfirstname4">first name</label>
-                                                            <input type="text" class="form-control" id="inputfirstname4" name= "firstname" placeholder="First name">
+                                                            <input type="text" class="form-control" id="inputfirstname4" name= "firstname" placeholder="First name" required>
                                                         </div>
                                                         <!-- <div class="form-group col-md-6 mb-50">
                                                             <label for="inputlastname4">last name</label>
@@ -97,15 +98,16 @@
                                                     <!-- </div> -->
                                                     <div class="form-group mb-50">
                                                         <label class="text-bold-600" for="exampleInputUsername1">lastname</label>
-                                                        <input type="text" class="form-control" id="exampleInputUsername1" name= "lastname" placeholder="Last name"></div>
+                                                        <input type="text" class="form-control" id="exampleInputUsername1" name= "lastname" placeholder="Last name" required></div>
                                                     <div class="form-group mb-50">
                                                         <label class="text-bold-600" for="exampleInputEmail1">Email address</label>
-                                                        <input type="email" class="form-control" id="exampleInputEmail1" name= "email" placeholder="Email address"></div>
+                                                        <input type="email" class="form-control" id="exampleInputEmail1" name= "email" placeholder="Email address" required></div>
                                                     <div class="form-group mb-2">
                                                         <label class="text-bold-600" for="exampleInputPassword1">Password</label>
-                                                        <input type="password" class="form-control" id="exampleInputPassword1" name= "password" placeholder="Password">
+                                                        <input type="password" class="form-control" id="exampleInputPassword1" name= "password" placeholder="Password" required>
                                                     </div>
-                                                    <button type="submit" class="btn btn-primary glow position-relative w-100">SIGN UP<!-- <i id="icon-arrow" class="bx bx-right-arrow-alt"></i> --></button>
+                                                    <button type="submit" class="btn btn-primary glow position-relative w-100" name = "signup">SIGN UP<!-- <i id="icon-arrow" class="bx bx-right-arrow-alt"></i> --></button>
+
                                                 </form>
                                                 <hr>
                                                 <div class="text-center"><small class="mr-25">Already have an account?</small><a href="login.php"><small>Sign in</small> </a></div>

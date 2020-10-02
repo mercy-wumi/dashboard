@@ -3,25 +3,7 @@ define('HOST', 'localhost');
 define('USER', 'root');  
 define('PASS', '');  
 define('DB', 'vennitdashboard');  
-// class DB  
-  
-// {  
-
-//     function __construct() {  
-//         // $con = mysql_connect(HOST, USER, PASS) or die('Connection Error! '.mysql_error());  
-//         // mysql_select_db(DB, $con) or die('DB Connection Error: ->'.mysql_error());  
-    
-
-//         $conn = new mysqli(HOST, USER, PASS);
-
-//         // Check connection
-//         if ($conn->connect_error) {
-//           die("Connection failed: " . $conn->connect_error);
-//         }
-//         echo "Connected successfully";
-
-//     }
-// }  
+ 
   
 class User  
   
@@ -41,8 +23,8 @@ class User
   
     public  
   
-    function register($firstname, $lastname, $email, $pass) {  
-        $conn = $this->conn;
+    function register($firstname, $lastname, $email, $pass) {
+        $conn = $this->conn;  
         $pass = md5($pass);
         $sql = "Select id from users where email='$email'";
 
@@ -58,17 +40,6 @@ class User
             }
         }
 
-
-
-        // $checkuser = mysql_query("Select id from users where email='$email'"); 
-
-        // $result = mysql_num_rows($checkuser);  
-        // if ($result == 0) {  
-        //     $register = mysql_query("Insert into users (firstname, lastname, email, password) values ('$firstname','$lastname','$email','$pass')") or die(mysql_error());  
-        //     return $register;  
-        // } else {  
-        //     return false;  
-        // }  
     }  
   
     public  
@@ -101,9 +72,7 @@ class User
         $rowId = $resultId->fetch_assoc();
         echo $rowId['firstname'];
 
-        // $row = mysqli_fetch_array($result);  
-        // echo $row['firstname'];  
-    }  
+        }  
   
     public  
   
