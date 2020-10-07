@@ -1,9 +1,12 @@
 <?php  
+
 define('HOST', 'localhost');  
 define('USER', 'root');  
 define('PASS', '');  
 define('DB', 'vennitdashboard');  
  
+require_once 'sendEmails.php';
+
   
 class User  
   
@@ -23,8 +26,9 @@ class User
   
     public  
   
-    function register($firstname, $lastname, $email, $pass) {
-        $conn = $this->conn;  
+    function register($firstname, $lastname, $email, $token, $pass) {
+        $conn = $this->conn;
+        $token = bin2hex(random_bytes(50)); // generate unique token 
         $pass = md5($pass);
         $sql = "Select id from users where email='$email'";
 
@@ -32,8 +36,21 @@ class User
 
         if($result->num_rows <= 0)
         {
-            $sql = "INSERT INTO `users` (firstname, lastname, email, password) VALUES ('$firstname','$lastname','$email','$pass') ";
+            $sql = "INSERT INTO `users` (firstname, lastname, email, token, password) VALUES ('$firstname','$lastname','$email','$token','$pass') ";
             if ($conn->query($sql) === TRUE) {
+
+            //TO DO: send verification email to user
+            sendVerificationEmail($email, $token);
+
+            $_SESSION['id'] = $user_id;
+            $_SESSION['firstname'] = $firstname;
+            $_SESSION['lastname'] = $firstname;
+            $_SESSION['verified'] = false;
+            $_SESSION['email'] =  $email;
+            $_SESSION['message'] = 'You are logged in!';
+            $_SESSION['type'] = 'alert-success';
+            
+            header("location:index.php"); 
               //echo "New record created successfully";
             } else {
               echo "Error: " . $sql . "<br>" . $conn->error;
@@ -89,5 +106,5 @@ class User
         session_destroy();  
     }  
 }  
-  
+
 ?> 

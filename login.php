@@ -100,7 +100,7 @@
                                                 <form action="" method="post">
                                                     <div class="form-group mb-50">
                                                         <label class="text-bold-600" for="exampleInputEmail1">Email address</label>
-                                                        <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Email address" value="adamsmercy790@yahoo.com"></div>
+                                                        <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Email address"></div>
                                                     <div class="form-group">
                                                         <label class="text-bold-600" for="exampleInputPassword1">Password</label>
                                                         <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">

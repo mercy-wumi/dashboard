@@ -3,7 +3,7 @@
 
    $user = new User(); 
    if ($_SERVER["REQUEST_METHOD"] == "POST"){  
-      $register = $user->register($_REQUEST['firstname'],$_REQUEST['lastname'],$_REQUEST['email'],$_REQUEST['password']);  
+      $register = $user->register($_REQUEST['firstname'],$_REQUEST['lastname'],$_REQUEST['email'],'token',$_REQUEST['password']);  
       //echo $register;
       // if($register){  
       //    echo "Registration Successful!";  
