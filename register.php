@@ -2,16 +2,20 @@
    include_once 'class.php';  
 
    $user = new User(); 
+   $alertClasses = "hidden";
+   $alertMessage = "";
    if ($_SERVER["REQUEST_METHOD"] == "POST"){  
-      $register = $user->register($_REQUEST['firstname'],$_REQUEST['lastname'],$_REQUEST['email'],'token',$_REQUEST['password']);  
+      $register = $user->register($_REQUEST['firstname'],$_REQUEST['lastname'],$_REQUEST['email'],$_REQUEST['password']);  
       //echo $register;
-      // if($register){  
-      //    echo "Registration Successful!";  
-      // }
-      // else
-      // {  
-      //    echo "Entered email already exist!";  
-      // }  
+      if($register["status"] == "success"){  
+        $alertClasses = "alert-success";
+        $alertMessage = "Registration Successful!<br> Check your email to verify your account";
+      }
+      else
+      {  
+        $alertClasses = "alert-danger";
+        $alertMessage = $register["msg"];
+      }  
    }  
 ?>  
 
@@ -105,6 +109,12 @@
                                                     <div class="form-group mb-2">
                                                         <label class="text-bold-600" for="exampleInputPassword1">Password</label>
                                                         <input type="password" class="form-control" id="exampleInputPassword1" name= "password" placeholder="Password" required>
+                                                    </div>
+                                                    <div class="alert alert-dismissible fade show <?php echo $alertClasses; ?>" role="alert">
+                                                        <?php echo $alertMessage; ?>
+                                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
                                                     </div>
                                                     <button type="submit" class="btn btn-primary glow position-relative w-100" name = "signup">SIGN UP<!-- <i id="icon-arrow" class="bx bx-right-arrow-alt"></i> --></button>
 

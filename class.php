@@ -26,7 +26,7 @@ class User
   
     public  
   
-    function register($firstname, $lastname, $email, $token, $pass) {
+    function register($firstname, $lastname, $email, $pass) {
         $conn = $this->conn;
         $token = bin2hex(random_bytes(50)); // generate unique token 
         $pass = md5($pass);
@@ -42,20 +42,21 @@ class User
             //TO DO: send verification email to user
             sendVerificationEmail($email, $token);
 
-            $_SESSION['id'] = $user_id;
+            $_SESSION['id'] = $conn->insert_id;
             $_SESSION['firstname'] = $firstname;
-            $_SESSION['lastname'] = $firstname;
+            $_SESSION['lastname'] = $lastname;
             $_SESSION['verified'] = false;
             $_SESSION['email'] =  $email;
             $_SESSION['message'] = 'You are logged in!';
             $_SESSION['type'] = 'alert-success';
             
-            header("location:index.php"); 
-              //echo "New record created successfully";
+            return array("status"=>"success", "msg"=>"");
             } else {
-              echo "Error: " . $sql . "<br>" . $conn->error;
+              return array("status"=>"error", "msg"=>$conn->error);
             }
-        }
+        } else {
+              return array("status"=>"error", "msg"=>"Duplicate Email");
+            }
 
     }  
   
@@ -78,7 +79,9 @@ class User
             return false;
         }
 
-    }  
+    } 
+    
+   
   
     public  
   
