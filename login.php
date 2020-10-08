@@ -2,6 +2,8 @@
    session_start();  
    include_once 'class.php';  
    $user = new User();  
+   $verifyalert= "hidden";
+   $alertMsg = "";
    if ($user->session())  
    {  
       header("location:index.php");  
@@ -9,13 +11,14 @@
   
    $user = new User();  
    if ($_SERVER["REQUEST_METHOD"] == "POST"){  
-      $login = $user->login($_REQUEST['email'],$_REQUEST['password']);  
-      if($login){  
-         header("location:index.php");
+      $login = $user->login($_REQUEST['email'],$_REQUEST['password']); 
+      if($login){
+        header("location:index.php");
       }
       else
       {  
-         echo "Login Failed!";  
+         $verifyalert = "alert-danger";
+        $alertMsg = "Account not Verified!<br> Check your mail to verify your account";; 
       }  
    }  
 ?>  
@@ -104,6 +107,12 @@
                                                     <div class="form-group">
                                                         <label class="text-bold-600" for="exampleInputPassword1">Password</label>
                                                         <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
+                                                    </div>
+                                                    <div class="alert alert-dismissible fade show <?php echo $verifyalert; ?>" role="alert">
+                                                        <?php echo $alertMsg; ?>
+                                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
                                                     </div>
                                                      <!-- <div class="form-group d-flex flex-md-row flex-column justify-content-between align-items-center">
                                                         <div class="text-left">

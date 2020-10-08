@@ -42,14 +42,6 @@ class User
             //TO DO: send verification email to user
             sendVerificationEmail($email, $token);
 
-            $_SESSION['id'] = $conn->insert_id;
-            $_SESSION['firstname'] = $firstname;
-            $_SESSION['lastname'] = $lastname;
-            $_SESSION['verified'] = false;
-            $_SESSION['email'] =  $email;
-            $_SESSION['message'] = 'You are logged in!';
-            $_SESSION['type'] = 'alert-success';
-            
             return array("status"=>"success", "msg"=>"");
             } else {
               return array("status"=>"error", "msg"=>$conn->error);
@@ -66,10 +58,9 @@ class User
         $pass = md5($pass);  
         $conn = $this->conn;
 
-        $sql = "Select * from users where email='$email' and password='$pass'";
+        $sql = "Select * from users where email='$email' and password='$pass' and verified=1";
         $rs = $conn->query($sql);
         $row = $rs->fetch_assoc();
-
 
         if($rs->num_rows == 1) { // if users email and password found in database
             $_SESSION['login'] = true;
@@ -81,8 +72,6 @@ class User
 
     } 
     
-   
-  
     public  
   
     function firstname($id) {
