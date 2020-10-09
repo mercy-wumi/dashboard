@@ -7,6 +7,8 @@ define('DB', 'vennitdashboard');
  
 
 $conn = new mysqli(HOST, USER, PASS, DB);
+$verifiedAcc = '<h3>Account Verified</h3>
+                <p>click here to <a href= "login.php">LOGIN</a> to the dashboard.</p>';
 
 if (isset($_GET['token'])) {
     $token = $_GET['token'];
@@ -17,10 +19,11 @@ if (isset($_GET['token'])) {
         $resultrow = $resultquery->fetch_assoc();
         $updatequery = "UPDATE users SET verified=1 WHERE token='$token'";
         $queryresult = $conn->query($updatequery);
-        echo "Account verified";
+        $verifiedAcc;
     }
     else{
-        echo "user not found";
+        $verifiedAcc= '<h3>Account not verified</h3>
+        <p>check your mail and click on the link again</p>';
     }
 }
 else{
@@ -92,8 +95,7 @@ else{
                 <!-- login page start -->
                 <section id="auth-login" class="row flexbox-container">
                     <div class="card">
-                        <h3>Account Verified</h3>
-                         <p>click here to <a href= "login.php">LOGIN</a> to the dashboard.</p>
+                        <?php echo $verifiedAcc; ?>
                     </div>
                 </section>
                 <!-- login page ends -->
