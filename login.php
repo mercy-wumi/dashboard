@@ -15,10 +15,14 @@
       if($login){
         header("location:index.php");
       }
+    //   elseif($_REQUEST['email'] != $email && $_REQUEST['password']!= $pass ){
+    //     $verifyalert = "alert-danger";
+    //     $alertMsg = "Email or Password not correct";
+    //   }
       else
       {  
-         $verifyalert = "alert-danger";
-        $alertMsg = "Account not Verified!<br> Check your mail to verify your account";; 
+        $verifyalert = "alert-danger";
+        $alertMsg = "Account not Verified!<br> Check your mail to verify your account";
       }  
    }  
 ?>  

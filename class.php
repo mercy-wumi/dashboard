@@ -4,7 +4,6 @@ define('HOST', 'localhost');
 define('USER', 'root');  
 define('PASS', '');  
 define('DB', 'vennitdashboard');  
- 
 require_once 'sendEmails.php';
 
   
@@ -51,7 +50,7 @@ class User
             }
 
     }  
-  
+
     public  
   
     function login($email, $pass) {  
@@ -96,7 +95,8 @@ class User
     function logout() {  
         $_SESSION['login'] = false;  
         session_destroy();  
-    }  
+    } 
+
 }  
 
 ?> 

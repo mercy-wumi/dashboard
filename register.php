@@ -1,13 +1,45 @@
 <?php  
-   include_once 'class.php';  
+   include_once 'class.php';
+   
+    $user = new User(); 
+    $alertClasses = "hidden";
+    $alertMessage = "";
+    $firstnameErr= $lastnameErr= $emailErr= $passwordErr= "";
+    $fname= $lname= $memail= $mpassword= "";
 
-   $user = new User(); 
-   $alertClasses = "hidden";
-   $alertMessage = "";
-   if ($_SERVER["REQUEST_METHOD"] == "POST"){  
-      $register = $user->register($_REQUEST['firstname'],$_REQUEST['lastname'],$_REQUEST['email'],$_REQUEST['password']);  
-      //echo $register;
-      if($register["status"] == "success"){  
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+        if (isset($_REQUEST['signup-btn'])) {
+
+        if (empty($_REQUEST['firstname'])){
+            $firstnameErr= "firstname is required";
+        }
+        else {
+            $fname = inputTest($_REQUEST["firstname"]);
+        }
+        if (empty($_REQUEST['lastname'])){
+            $lastnameErr= "lastname is required";
+        }
+        else {
+            $lname = inputTest($_REQUEST["lastname"]);
+        }
+        if (empty($_REQUEST['email'])){
+            $emailErr= "email is required";
+        }
+        else {
+            $memail = inputTest($_REQUEST["email"]);
+        }
+        if (empty($_REQUEST['password'])){
+            $passwordErr= "password is required";
+        }
+        else {
+            $mpassword = inputTest($_REQUEST["password"]);
+        }
+
+        $register= $user->register($fname, $lname, $memail, $mpassword);
+        //$register = $user->register(inputTest($_REQUEST['firstname']),inputTest($_REQUEST['lastname']),inputTest($_REQUEST['email']),inputTest($_REQUEST['password']));  
+    
+    if($register["status"] == "success"){  
         $alertClasses = "alert-success";
         $alertMessage = "Registration Successful!<br> Check your email to verify your account";
       }
@@ -15,8 +47,15 @@
       {  
         $alertClasses = "alert-danger";
         $alertMessage = $register["msg"];
-      }  
-   }  
+      }
+    } 
+    } 
+    function inputTest($input) {
+        $input = trim($input);
+        $input = stripslashes($input);
+        $input = htmlspecialchars($input);
+        return $input;
+    }    
 ?>  
 
 <!DOCTYPE html>
@@ -93,7 +132,8 @@
                                                     <!-- <div class="form-row"> -->
                                                         <div class="form-group mb-50">
                                                             <label for="inputfirstname4">first name</label>
-                                                            <input type="text" class="form-control" id="inputfirstname4" name= "firstname" placeholder="First name" required>
+                                                            <input type="text" class="form-control" id="inputfirstname4" name= "firstname" placeholder="First name">
+                                                            <span> <?php echo $firstnameErr;?></span>
                                                         </div>
                                                         <!-- <div class="form-group col-md-6 mb-50">
                                                             <label for="inputlastname4">last name</label>
@@ -102,13 +142,18 @@
                                                     <!-- </div> -->
                                                     <div class="form-group mb-50">
                                                         <label class="text-bold-600" for="exampleInputUsername1">lastname</label>
-                                                        <input type="text" class="form-control" id="exampleInputUsername1" name= "lastname" placeholder="Last name" required></div>
+                                                        <input type="text" class="form-control" id="exampleInputUsername1" name= "lastname" placeholder="Last name">
+                                                        <span> <?php echo $lastnameErr;?></span>
+                                                        </div>
                                                     <div class="form-group mb-50">
                                                         <label class="text-bold-600" for="exampleInputEmail1">Email address</label>
-                                                        <input type="email" class="form-control" id="exampleInputEmail1" name= "email" placeholder="Email address" required></div>
+                                                        <input type="email" class="form-control" id="exampleInputEmail1" name= "email" placeholder="Email address">
+                                                        <span> <?php echo $emailErr;?></span>
+                                                        </div>
                                                     <div class="form-group mb-2">
                                                         <label class="text-bold-600" for="exampleInputPassword1">Password</label>
-                                                        <input type="password" class="form-control" id="exampleInputPassword1" name= "password" placeholder="Password" required>
+                                                        <input type="password" class="form-control" id="exampleInputPassword1" name= "password" placeholder="Password">
+                                                        <span> <?php echo $passwordErr;?></span>
                                                     </div>
                                                     <div class="alert alert-dismissible fade show <?php echo $alertClasses; ?>" role="alert">
                                                         <?php echo $alertMessage; ?>
@@ -116,7 +161,7 @@
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
-                                                    <button type="submit" class="btn btn-primary glow position-relative w-100" name = "signup">SIGN UP<!-- <i id="icon-arrow" class="bx bx-right-arrow-alt"></i> --></button>
+                                                    <button type="submit" class="btn btn-primary glow position-relative w-100" name = "signup-btn">SIGN UP<!-- <i id="icon-arrow" class="bx bx-right-arrow-alt"></i> --></button>
 
                                                 </form>
                                                 <hr>
